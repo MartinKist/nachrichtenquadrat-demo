@@ -12,8 +12,8 @@ Dieses Projekt ist eine interaktive Demo, die das Kommunikationsmodell von Schul
 
 2. **Repository klonen**:
    ```bash
-   git clone <repository-url>
-   cd <repository-name>
+   git clone https://github.com/MartinKist/nachrichtenquadrat-demo.git
+   cd nachrichtenquadrat-demo
    ```
 
 3. **Virtuelle Umgebung erstellen und aktivieren**:
