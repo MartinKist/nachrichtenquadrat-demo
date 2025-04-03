@@ -143,18 +143,18 @@ ears = {
 
 async def main() -> None:
     print(
-        "This is a demo to illustrate the Four-Sides Model by Schulz von Thun.\n"
-        "The demo consists of a fictional conversation that you can have with an AI.\n"
+        "Dies ist eine Demo, um das Vier-Seiten-Modell nach Schulz von Thun zu veranschaulichen.\n"
+        "Die Demo besteht aus einem fiktiven Gespräch, das du mit einer KI führen kannst.\n"
     )
 
     # Allow the user to customize the AI's "ears" sensitivity levels
-    choice = input('Do you want to adjust the AI\'s "ears"? (y/n) ')
+    choice = input('Möchtest du die Empfindlichkeit der "Ohren" der KI anpassen? (j/n) ')
     if choice.lower() in ["y", "j"]:
         for ear in ears.keys():
             while True:
                 try:
                     ear_weight = float(
-                        input(f"How sensitive should the AI's {ear} be (0-1)? ")
+                        input(f"Wie empfindlich soll das {ear} der KI sein (0-1)? ")
                     )
                     if 0 <= ear_weight <= 1:
                         ears[ear] = ear_weight
@@ -162,26 +162,26 @@ async def main() -> None:
                     else:
                         raise ValueError
                 except ValueError:
-                    print("Invalid input. Please enter a number between 0 and 1.")
+                    print("Ungültige Eingabe. Bitte gib eine Zahl zwischen 0 und 1 ein.")
     else:
-        print("The AI's ears remain unchanged.")
+        print("Die Empfindlichkeit der Ohren der KI bleibt unverändert.")
 
     # Get the situation description from the user
     situation = input(
-        "\nNow describe the situation in which the role-play should take place:\n"
+        "\nBeschreibe nun die Situation, in der das Rollenspiel stattfinden soll:\n"
     )
     communication_history: list[TResponseInputItem] = [
         {"role": "developer", "content": f"## Situation\n{situation}"},
         {
             "role": "developer",
-            "content": f"## Ears\n{'\n'.join(f'{key}: {value}' for key, value in ears.items())}",
+            "content": f"## Ohren\n{'\n'.join(f'{key}: {value}' for key, value in ears.items())}",
         },
     ]
 
     # Optionally generate an illustration of the situation
-    illustrate = input("\nDo you want to generate an image of this situation? (y/n) ")
+    illustrate = input("\nMöchtest du ein Bild dieser Situation generieren? (j/n) ")
     if illustrate.lower() in ["y", "j"]:
-        print("Please wait, generating an image of the situation...")
+        print("Bitte warten, ein Bild der Situation wird generiert...")
         client = OpenAI()
 
         response = client.images.generate(
@@ -192,18 +192,18 @@ async def main() -> None:
             n=1,
         )
         webbrowser.open(response.data[0].url)
-        print("Note: The image has been opened in your browser.\n")
+        print("Hinweis: Das Bild wurde in deinem Browser geöffnet.\n")
 
-    print("\nEverything is ready. Let's start the role-play!\n\n")
+    print("\nAlles ist bereit. Lassen uns mit dem Rollenspiel beginnen!\n\n")
     print(situation)
 
     # Start the communication loop
-    with trace("Role-play"):
+    with trace("Rollenspiel"):
         while True:
             # Get the user's message
-            msg = input("\nYou say: ")
+            msg = input("\nDu sagst: ")
             if msg == "exit":  # Exit the loop if the user types "exit"
-                print("Exiting...")
+                print("Beenden...")
                 break
 
             # Add the user's message to the communication history
@@ -214,13 +214,13 @@ async def main() -> None:
                 message_analyzer, communication_history
             )
 
-            print(f"\nFour-Sides Analysis:\n{analyzer_result.final_output}")
+            print(f"\nVier-Seiten-Analyse:\n{analyzer_result.final_output}")
 
             # Prepare input for the communication partner agent
             comm_agent_input = communication_history.copy()
             comm_agent_input.append(
                 {
-                    "content": f"## Four-Sides Analysis\n{analyzer_result.final_output}",
+                    "content": f"## Vier-Seiten-Analyse\n{analyzer_result.final_output}",
                     "role": "developer",
                 }
             )
@@ -248,7 +248,7 @@ async def main() -> None:
                 else:
                     # If the response is acceptable, add it to the communication history
                     communication_history.append(ai_answer)
-                    print("\nThe AI says: ", communication_partner_result.final_output)
+                    print("\nDie KI sagt: ", communication_partner_result.final_output)
                     break
 
 
