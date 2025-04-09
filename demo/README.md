@@ -1,32 +1,22 @@
-# Das Vier-Seiten-Modell nach Schulz von Thun
+# Kommunikation-Demo: Schulz von Thun's Vier-Seiten-Modell
 
 *Hinweis: Dieses README ist KI-generiert*
 
-Dieses Repo enthält Materialien und eine interaktive Demo, die das Vier-Seiten-Modell nach Schulz von Thun illustrieren. Es dient als Grundlage für einen Vortrag, der das Modell erklärt und dessen Anwendung in der Praxis zeigt.
+Dieses Projekt ist eine interaktive Demo, die das Kommunikationsmodell von Schulz von Thun (Vier-Seiten-Modell) illustriert. Es ermöglicht eine fiktive Konversation mit einer KI, die Nachrichten auf die vier Seiten analysiert und darauf basierend antwortet.
 
-## Inhalte des Repos
-
-- [Präsentation](präsentation.odp)
-- [Handout](handout/handout.pdf)
-- [Demo](demo/)
-
-## Installation der Demo
-
-Falls du die interaktive Demo ausprobieren möchtest, folge diesen Schritten:
+## Installation
 
 1. **Voraussetzungen**:
     - Python 3.9 oder höher
-    - [Einen OpenAI API Key](https://platform.openai.com/)
+    - [Einen OopenAI API Key](https://platform.openai.com/)
 
 2. **Repository klonen**:
-
    ```bash
    git clone https://github.com/MartinKist/nachrichtenquadrat-demo.git
    cd nachrichtenquadrat-demo
    ```
 
 3. **Virtuelle Umgebung erstellen und aktivieren**:
-
     ```bash
     python3 -m venv venv
     source venv/bin/activate  # Für Linux/Mac
@@ -34,7 +24,6 @@ Falls du die interaktive Demo ausprobieren möchtest, folge diesen Schritten:
     ```
 
 4. **Abhängigkeiten installieren**:
-
     ```bash
     pip install -r requirements.txt
     ```
@@ -42,27 +31,23 @@ Falls du die interaktive Demo ausprobieren möchtest, folge diesen Schritten:
 5. API-Key als Umgebungsvariable setzen
 
     **Für Linux/Mac**:
-
     ```bash
     export OPENAI_API_KEY=<dein API-Key>
     ```
 
     **Für Windows** (PowerShell):
-
     ```powershell
     $env:OPENAI_API_KEY="<dein API-Key>"
     ```
 
     **Für Windows** (Eingabeaufforderung):
-
     ```cmd
     set OPENAI_API_KEY=<dein API-Key>
     ```
 
-## Bedienung der Demo
+## Bedienung
 
 1. **Starten der Demo**:
-
    ```bash
    python demo.py
    ```
@@ -79,7 +64,7 @@ Falls du die interaktive Demo ausprobieren möchtest, folge diesen Schritten:
 4. **Beenden**:
    - Gib `exit` ein, um die Demo zu beenden.
 
-## Architektur der Demo
+## Architektur
 
 Das Projekt besteht aus mehreren Komponenten:
 
@@ -102,7 +87,7 @@ Das Projekt besteht aus mehreren Komponenten:
 4. **Interaktive Schleife**:
    - Der Nutzer interagiert mit der KI in einer Schleife, bis er die Demo beendet.
 
-## Beispiel der Demo
+## Beispiel
 
 ```markdown
 Dies ist eine Demo, um das Vier-Seiten-Modell von Schulz von Thun zu veranschaulichen.  
